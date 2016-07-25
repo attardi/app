@@ -203,7 +203,7 @@
 
 		<?= empty( $wg->SuppressFooter ) ? $app->renderView( 'Footer', 'Index' ) : '' ?>
 		<? if( !empty( $wg->EnableCorporateFooterExt ) ) echo $app->renderView( 'CorporateFooter', 'index' ) ?>
-		<?= $app->renderView( 'GlobalFooter', 'index' ); ?>
+		<?= empty( $wg->EnableDesignSystem ) ? $app->renderView( 'GlobalFooter', 'index' ) : $app->renderView( 'DesignSystemGlobalFooter', 'index' ); ?>
 	</div>
 </section><!--WikiaPage-->
 

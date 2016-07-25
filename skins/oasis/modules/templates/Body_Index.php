@@ -203,9 +203,11 @@
 
 		<?= empty( $wg->SuppressFooter ) ? $app->renderView( 'Footer', 'Index' ) : '' ?>
 		<? if( !empty( $wg->EnableCorporateFooterExt ) ) echo $app->renderView( 'CorporateFooter', 'index' ) ?>
-		<?= empty( $wg->EnableDesignSystem ) ? $app->renderView( 'GlobalFooter', 'index' ) : $app->renderView( 'DesignSystemGlobalFooter', 'index' ); ?>
+		<? if( empty( $wg->EnableDesignSystem ) ) echo $app->renderView( 'GlobalFooter', 'index' ); ?>
 	</div>
 </section><!--WikiaPage-->
+
+<? if( !empty( $wg->EnableDesignSystem ) ) echo $app->renderView( 'DesignSystemGlobalFooter', 'index' ); ?>
 
 <?php if( $wg->EnableWikiaBarExt ): ?>
 	<?= $app->renderView( 'WikiaBar', 'Index' ); ?>
